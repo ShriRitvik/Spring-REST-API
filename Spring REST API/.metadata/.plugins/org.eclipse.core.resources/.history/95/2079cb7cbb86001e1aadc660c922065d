@@ -1,0 +1,23 @@
+package com.SB.RestAPI.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.SB.RestAPI.Entity.Employee;
+import com.SB.RestAPI.Repository.EmployeeRepo;
+
+@RestController
+public class EmployeeController {
+	
+	@Autowired
+	private EmployeeRepo employeeRepo;
+	
+	//Single table to save
+	@PostMapping("/addEmployee")
+	public Employee saveEmployee(@RequestBody Employee emp) {
+		return employeeRepo.save(emp);
+	}
+
+}

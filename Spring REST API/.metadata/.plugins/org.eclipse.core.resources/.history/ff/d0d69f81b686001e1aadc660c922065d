@@ -1,0 +1,5 @@
+package com.SB.RestAPI.Entity;
+
+public class Employee {
+
+}

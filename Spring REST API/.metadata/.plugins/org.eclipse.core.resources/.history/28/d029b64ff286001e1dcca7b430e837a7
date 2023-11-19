@@ -1,0 +1,45 @@
+package com.SB.RestAPI.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.SB.RestAPI.Entity.User;
+import com.SB.RestAPI.Repo.UserRepo;
+
+@RestController
+public class UserController {
+
+	@Autowired
+	private UserRepo userRepo;
+
+	@GetMapping("/")
+	public String index() {
+		return "Welcome To REST API ";
+	}
+	
+	         /* POSTMAPPING*/
+
+	// Store one Record
+
+	@PostMapping("/save")
+	public User save(@RequestBody User user) {
+		return userRepo.save(user);
+	}
+
+	// Create multiple Record
+	@PostMapping("/saveAll")
+	public List<User> saveAll(@RequestBody List<User> user) {
+		return userRepo.saveAll(user);
+	}
+	
+	 /*  ================== GET MAPPING===================  */
+	
+	public List<User> getUser() {
+		return userRepo.findAll();
+	}
+}

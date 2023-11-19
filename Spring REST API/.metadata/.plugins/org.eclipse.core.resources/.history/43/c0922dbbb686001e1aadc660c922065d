@@ -1,0 +1,18 @@
+package com.SB.RestAPI.Entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "sb_emp")
+public class Employee {
+
+	private int id;
+
+	private String fname;
+
+	private String lname;
+
+	private String email;
+
+}

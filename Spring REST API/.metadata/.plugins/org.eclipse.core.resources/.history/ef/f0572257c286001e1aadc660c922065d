@@ -1,0 +1,71 @@
+package com.SB.RestAPI.Controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.SB.RestAPI.Entity.Employee;
+import com.SB.RestAPI.Repository.EmployeeRepo;
+
+@RestController
+public class EmployeeController {
+
+	@Autowired
+	private EmployeeRepo employeeRepo;
+
+	// Single feilds to save
+	@PostMapping("/addEmployee")
+	public Employee saveEmployee(@RequestBody Employee emp) {
+		return employeeRepo.save(emp);
+	}
+
+	// Multiple feilds to save
+
+	@PostMapping("/addEmployees")
+	public List<Employee> saveEmployees(@RequestBody List<Employee> emp) {
+		return employeeRepo.saveAll(emp);
+
+	}
+
+	// retrive all value using GetMapping
+
+	@GetMapping("/employees")
+	public List<Employee> getEmployees() {
+		return employeeRepo.findAll();
+
+	}
+
+	// retrive one data and parameters are same as entity 
+     
+//	@GetMapping("/{id}")
+//	public Optional<Employee> findEmployeeById(@PathVariable int id) {
+//		return employeeRepo.findById(id);
+//
+//	}
+	
+	/*@GetMapping("/{Name}")
+	public Employee findEmployeeByName(@PathVariable ("Name") String fname) {
+		return employeeRepo.findByName(fname);
+
+	}*/
+	
+	
+	@GetMapping("/{id}")
+	public Optional<Employee> findEmployeeByIdd(@PathVariable("id") int id) {
+		return employeeRepo.findById(id);
+
+	}
+	
+	@PutMapping("/empupdate")
+	public Employee employeeUpdae(@RequestBody Employee empUpdate) {
+		return employeeRepo.save(empUpdate);
+	}
+	
+}

@@ -1,0 +1,5 @@
+package com.SB.RestAPI.Repository;
+
+public interface UserRepo {
+
+}
