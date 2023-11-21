@@ -2,6 +2,9 @@ package com.SB.RestAPI.Entity;
 
 import java.util.Date;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,7 +13,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name="sb_students")
+@Table(name="sbs")
 public class Student {
 
 	@Id
@@ -24,9 +27,11 @@ public class Student {
 	private String imageUrl;
 
 	private boolean active;
-
+  
+	@CreationTimestamp
 	private Date dateCreated;
-
+   
+	@UpdateTimestamp
 	private Date lastUpdated;
 
 	public Student() {

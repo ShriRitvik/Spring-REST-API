@@ -1548,3 +1548,9 @@ java.util.concurrent.TimeoutException
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-11-21 19:14:55.655
+!MESSAGE Classpath changed for project: SB_Restful_CRUD_API_WithServiceLayer_Main
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-11-21 19:14:55.658
+!MESSAGE Boot project ADDED: SB_Restful_CRUD_API_WithServiceLayer_Main
